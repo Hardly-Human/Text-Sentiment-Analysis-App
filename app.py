@@ -14,6 +14,23 @@ def main():
 	if input_text is None:
 		st.warning("Enter text and Predict Sentiment")
 
+	if st.button("Generate Caption"):
+		if input_text is not None:
+			r = requests.post(
+                "https://api.deepai.org/api/sentiment-analysis",
+                data = {
+                            'text': input_text,
+                        },
+                headers = {'api-key': 'aa48ee59-f392-4783-b1ac-ab410534ca61'}
+            )
+			output = r.json()['output']
+			if output[0] == 'Positive' and len(output)== 1:
+				st.success('Output : {}'.format(output))
+			elif output[0] == 'Negative' and len(output)== 1:
+				st.error('Output : {}'.format(output))
+			else:
+				st.info('Output : {}'.format(output))
+
 
 
 if __name__== "__main__":
