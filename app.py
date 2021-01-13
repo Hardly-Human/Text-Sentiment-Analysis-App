@@ -31,7 +31,7 @@ def main():
                 data = {
                             'text': input_text,
                         },
-                headers = {'api-key': 'aa48ee59-f392-4783-b1ac-ab410534ca61'}
+                headers = {'api-key': '8f0499fe-bf0f-455d-9f4b-3acb442b49c4'}
             )
 			output = r.json()['output']
 			if output[0] == 'Positive' and len(output)== 1:
